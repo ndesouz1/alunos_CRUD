@@ -54,4 +54,19 @@ router.delete('/:id', (req, res) => {
     res.send(`Aluno with the id ${id} was deleted from the database.`);
 });
 
+router.patch('/:id', (req, res) => {
+    const { id } = req.params;
+    const { firstName, lastName, age } = req.body;
+    const aluno = alunos.find((aluno) => aluno.id === id);
+
+    //if (firstName){
+        //aluno.firstName = firstName;
+    //}
+    if (firstName) aluno.firstName = firstName;
+    if (lastName) aluno.lastName = lastName;
+    if (age) aluno.age = age;
+    
+    res.send(`Aluno with the id ${id} has been updated`);
+});    
+
 export default router; 
