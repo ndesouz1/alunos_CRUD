@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 app.use('/alunos', alunosRoutes);
 
-    app.get('/', (req, res) => res.send('Hello from Homepage.'));
+app.get('/', (req, res) => res.send('Hello from Homepage.'));
+
 app.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}`));
 
