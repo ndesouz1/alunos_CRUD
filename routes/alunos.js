@@ -18,7 +18,7 @@ const router = express.Router();
     //}
 //]
 
-    const alunos = [];
+    let alunos = []; //cosnt vai dar erro
 
 // all routes in here are starting with /alunos
 router.get('/', (req, res) =>  {
@@ -42,6 +42,16 @@ router.get('/:id', (req, res) =>  {
     const { id } = req.params;
     const foundAluno = alunos.find((aluno) => aluno.id === id);  
     res.send(foundAluno);
+});
+
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    // id to delete 123
+    //Lucca 123
+    //Lucas 321
+    alunos = alunos.filter((aluno) => aluno.id !== id); //delete false ones (123 != 123...no...so delele)
+    
+    res.send(`Aluno with the id ${id} was deleted from the database.`);
 });
 
 export default router; 
